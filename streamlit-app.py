@@ -90,7 +90,7 @@ st.markdown("Making a prediction using our application returns not only \
     the predicted classification, but also the probability used in making \
     that classification!")
 
-st.markdown("Let's see an example of predicting LinkedIn usage for a high income, \
+st.markdown("Play the video below to see an example of predicting LinkedIn usage for a high income, \
     high education, married, non-parent female who is 42 years old and see \
     what our Logistic Model predicts!")
 
