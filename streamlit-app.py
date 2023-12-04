@@ -72,7 +72,29 @@ logistic_model = LogReg(random_state=0, class_weight='balanced').fit(X_train, y_
 
 #----------------STREAMLIT OUTPUT----------------#
 
-st.markdown("## Hello, and welcome to my application!")
+st.title("Who's A User?")
+st.markdown("#### A Machine Learning Python Application to Predict LinkedIn Usage") 
+st.markdown("###### Prepared by: Clark P. Necciai")
+st.divider()
+st.markdown("\tSometimes, is can seem as though the whole world uses \
+    **LinkedIn!**")
+
+st.markdown("Of course, while it is a popular social networking \
+    site and useful for marketing purposes, not *everyone* uses\
+    it. Through a granular analysis of up-to-date Pew usage data, \
+    our application now provides an interactive environment to \
+    produce real-time predictions as to whether or not someone \
+    uses LinkedIn!")
+
+st.markdown("Play the video below for example usage of our application. \
+    Let's see what our Logistic Model thinks when we predict the for \
+    the classification and probability of a high income, \
+    high education, married, non-parent female who is 42 years old and see \
+    what our Logistic Model predicts! ")
+
+video_file = open('streamlit-usage.mp4', 'rb')
+video = video_file.read()
+st.video(video)
 
 st.divider()
 
@@ -80,7 +102,7 @@ col_i, col_e = st.columns([1,1])
 
 #Income Prompt
 with col_i: 
-    answer_i = st.selectbox( "Select Your Income Range :moneybag: :money_mouth_face:", 
+    answer_i = st.selectbox( "Select Income Range :moneybag: :money_mouth_face:", 
                             ( "1 - Less than $10,000", "2 - $10,000 to under $20,000",
                                                 "3 - $20,000 to under $30,000", "4 - $30,000 to under $40,000",
                                                 "5 - $40,000 to under $50,000", "6 - $50,000 to under $75,000", 
@@ -110,7 +132,7 @@ with col_i:
 
 #Education Prompt
 with col_e: 
-    answer_e = st.selectbox("Select Your Education Level :mortar_board:",
+    answer_e = st.selectbox("Select Education Level :mortar_board:",
                                 ("1 - Less than high school (Grades 1-8 or no formal schooling)",
                                 "2 - High school incomplete (Grades 9-11 or Grade 12 with NO diploma)",
                                 "3 - High school graduate (Grade 12 with diploma or GED certificate)",
@@ -145,21 +167,21 @@ col1, col2, col3 = st.columns([1,1,1])
 
 #Parent Prompt and Variable Assignment
 with col1:     
-    answer_p = st.radio("Are you a parent? :baby:", ["Yes", "No"])
+    answer_p = st.radio("Is a parent? :baby:", ["Yes", "No"])
     user_parent = 1 if answer_p == "Yes" else 0
 
 #Married Prompt and Variable Assignment
 with col2: 
-    answer_m = st.radio("Are you married? :ring:", ["Yes", "No"])
+    answer_m = st.radio("Is married? :ring:", ["Yes", "No"])
     user_married = 1 if answer_m == "Yes" else 0
 
 #Female Prompt and Variable Assignment
 with col3:
-    answer_g = st.radio("Are you Female? :woman:", ["Yes", "No"])
+    answer_g = st.radio("Is female? :woman:", ["Yes", "No"])
     user_gender = 1 if answer_g == "Yes" else 0
 
 #Age Prompt and Variable Assignment
-user_age = st.slider("Select Your Age!", int(ss["age"].min()), 98)
+user_age = st.slider("Select age :child::adult::older_adult:", int(ss["age"].min()), 98)
 
 col_l, col_p, col_r = st.columns([1,1,1])
 
