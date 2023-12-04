@@ -68,7 +68,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 #Instantiate Logistic Regression Model and Fit
 from sklearn.linear_model import LogisticRegression as LogReg
-logistic_model = LogReg(random_state=0, class_weight='balanced').fit(X_train, y_train)
+logistic_model = LogReg(class_weight='balanced').fit(X_train, y_train)
 
 #----------------STREAMLIT OUTPUT----------------#
 
