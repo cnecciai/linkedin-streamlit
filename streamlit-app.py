@@ -86,17 +86,22 @@ st.markdown("Of course, while it is a popular social networking \
     produce real-time predictions as to whether or not someone \
     uses LinkedIn!")
 
-st.markdown("Play the video below for example usage of our application. \
-    Let's see what our Logistic Model thinks when we predict the for \
-    the classification and probability of a high income, \
+st.markdown("Making a prediction using our application returns not only \
+    the predicted classification, but also the probability used in making \
+    that classification!")
+
+st.markdown("Let's see an example of predicting LinkedIn usage for a high income, \
     high education, married, non-parent female who is 42 years old and see \
-    what our Logistic Model predicts! ")
+    what our Logistic Model predicts!")
 
 video_file = open('streamlit-usage.mp4', 'rb')
 video = video_file.read()
-st.video(video)
-
 st.divider()
+st.video(video)
+st.divider()
+st.markdown("### ~ Application Below ~")
+st.markdown("###### Choose options then click [Calculate Prediction!] to retrieve results!")
+
 
 col_i, col_e = st.columns([1,1])
 
@@ -187,7 +192,7 @@ col_l, col_p, col_r = st.columns([1,1,1])
 
 #Prompt User to Make Prediction
 with col_p:
-    user_make_prediction = st.button("Make Your Prediction!")
+    user_make_prediction = st.button("Calculate Prediction!")
 
     #Show output 
     if user_make_prediction == True: 
