@@ -197,8 +197,14 @@ with col_p:
     #Show output 
     if user_make_prediction == True: 
 
-        with st.spinner(text = "Making a prediction..."):
-            time.sleep(1.5)
+        progress_text = "Making a prediction. Please wait."
+        my_bar = st.progress(0, text=progress_text)
+            
+        for percent_complete in range(100):
+            time.sleep(0.01)
+            my_bar.progress(percent_complete + 1, text=progress_text)
+        time.sleep(0.5)
+        my_bar.empty()
             
         #Insert User Input into Dataframe
         pred_obs = pd.DataFrame({
@@ -222,7 +228,7 @@ with col_p:
         #Display Classification Result
         color = ""
         if (probability_user) >= 0.5:
-            st.write("Our model would classify this person as :blue[LinkedIn User]!")
+            st.write("Our model would classify this person as a :blue[LinkedIn User]!")
         else:
             st.write("Our model would classify this person as :red[Not LinkedIn User]!")
         
