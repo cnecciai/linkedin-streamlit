@@ -232,7 +232,7 @@ with col_p:
         prob_ans = dict(
             labels = ["LinkedIn User",
                       "Not LinkedIn User"], 
-            values = [round(probability_user, 3), ((1 - probability_user), 3)],
+            values = [round(probability_user, 3), round((1 - probability_user), 3)],
         )
         
         #Donut Plot Displaying Competing Probabilities
