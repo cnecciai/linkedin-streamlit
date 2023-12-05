@@ -220,18 +220,13 @@ with col_p:
         st.divider()
         
         #Display Classification Result
+        color = ""
+        if (probability_user) >= 0.5:
+            st.write("Our model would classify this person as :blue[LinkedIn User]!")
+        else:
+            st.write("Our model would classify this person as :red[Not LinkedIn User]!")
         
-        col_a, col_c, col_p, col_r = st.columns([1,1,1,1])
-        
-        with col_c:
-            color = ""
-            if (probability_user) >= 0.5:
-                st.write("Our model would classify this person as :blue[LinkedIn User]!")
-            else:
-                st.write("Our model would classify this person as :red[Not LinkedIn User]!")
-        
-        with col_p:
-            #Display Probability Result used in determining classification
-            st.metric(label = "Probability this person uses LinkedIn:", value=ans)
+        #Display Probability Result used in determining classification
+        st.metric(label = "Probability this person uses LinkedIn:", value=ans)
 
         
