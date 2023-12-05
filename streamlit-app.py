@@ -215,13 +215,13 @@ with col_p:
         probability_user = logistic_model.predict_proba(pred_obs)[0][1]
         
         #Format probability
-        ans = "{:.2f}%".format(probability_user*100)
+        ans = "{:.3f}".format(probability_user)
         
         st.divider()
         
         #Display Classification Result
         color = ""
-        if (probability_user*100) >= 50.0:
+        if (probability_user) >= 0.5:
             st.write("Our model would classify this person as :blue[LinkedIn User]!")
         else:
             st.write("Our model would classify this person as :red[Not LinkedIn User]!")
@@ -232,7 +232,7 @@ with col_p:
         prob_ans = dict(
             labels = ["LinkedIn User",
                       "Not LinkedIn User"], 
-            values = [probability_user * 100, (1 - probability_user) * 100],
+            values = [round(probability_user, 3), ((1 - probability_user), 3)],
         )
         
         #Donut Plot Displaying Competing Probabilities
