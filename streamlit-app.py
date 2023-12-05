@@ -220,35 +220,18 @@ with col_p:
         st.divider()
         
         #Display Classification Result
-        color = ""
-        if (probability_user) >= 0.5:
-            st.write("Our model would classify this person as :blue[LinkedIn User]!")
-        else:
-            st.write("Our model would classify this person as :red[Not LinkedIn User]!")
         
-        #Display Probability Result used in determining classification
-        st.metric(label = "Probability this person uses LinkedIn:", value=ans)
+        col_a, col_c, col_p, col_r = st.columns([1,1,1,1])
+        
+        with col_c:
+            color = ""
+            if (probability_user) >= 0.5:
+                st.write("Our model would classify this person as :blue[LinkedIn User]!")
+            else:
+                st.write("Our model would classify this person as :red[Not LinkedIn User]!")
+        
+        with col_p:
+            #Display Probability Result used in determining classification
+            st.metric(label = "Probability this person uses LinkedIn:", value=ans)
 
-        prob_ans = dict(
-            labels = ["LinkedIn User",
-                      "Not LinkedIn User"], 
-            values = [round(probability_user, 3), round((1 - probability_user), 3)],
-        )
-        
-        #Donut Plot Displaying Competing Probabilities
-        fig = px.pie(prob_ans, 
-                     values = 'values',
-                     names = 'labels', 
-                     hover_data=None,
-                     hole=.60,
-                     category_orders={"labels": ["LinkedIn User", "Not LinkedIn User" ] })
-        
-        fig.update_layout(
-            title = "Model Outcome Probabilities",
-            margin = {'l' : 0, 'r' : 450, 'b' : 175, 't' : 65}
-            
-        )
-        
-        #Display
-        st.plotly_chart(fig)
         
