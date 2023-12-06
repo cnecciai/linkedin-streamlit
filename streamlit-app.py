@@ -6,7 +6,7 @@ Task: Logistic Regression Model - LinkedIn User
 To run application:
 1. Open terminal w/ streamlit-linkedin-clark environment active
 2. Navigate to corresponding directory
-3. Input: "streamlit run streamlit-appip.py" command
+3. Input: "streamlit run streamlit-app.py" command
 
 To exit:
 In terminal, `ctrl + c`
@@ -17,7 +17,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import warnings
-import plotly.express as px 
 import time
 warnings.filterwarnings("ignore")
 
