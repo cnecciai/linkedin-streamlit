@@ -95,12 +95,11 @@ st.markdown("Play the video below to see an example of predicting LinkedIn usage
 
 video_file = open('streamlit-usage.mp4', 'rb')
 video = video_file.read()
-st.divider()
 st.video(video)
 st.divider()
-st.markdown("### ~ Application Below ~")
-st.markdown("###### Choose options then click [Calculate Prediction!] to retrieve results!")
 
+st.markdown("<h3 style='text-align: center; color: white;'>~ Prediction Application Below ~</h3>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center; color: white;'>Choose options then click [Calculate Prediction!] to retrieve results</h5>", unsafe_allow_html=True)
 
 col_i, col_e = st.columns([1,1])
 
