@@ -71,7 +71,7 @@ logistic_model = LogReg(class_weight='balanced').fit(X_train, y_train)
 
 #----------------STREAMLIT OUTPUT----------------#
 
-st.title("Who's A User?")
+st.title(":blue[Who's A User?]")
 st.markdown("#### A Machine Learning Python Application to Predict LinkedIn Usage") 
 st.markdown("###### Prepared by: Clark P. Necciai")
 st.divider()
