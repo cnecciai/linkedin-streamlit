@@ -213,6 +213,7 @@ with col_p:
             'female' : user_gender,
             'age' : user_age}, index=[0])
 
+        #Class Prediction
         y_pred = logistic_model.predict(pred_obs)
 
         #Probability of LinkedIn User
@@ -225,7 +226,7 @@ with col_p:
         
         #Display Classification Result
         color = ""
-        if (probability_user) >= 0.5:
+        if (int(y_pred[0])) == 1:
             st.write("Our model would classify this person as a :blue[LinkedIn User]!")
         else:
             st.write("Our model would classify this person as :red[Not LinkedIn User]!")
