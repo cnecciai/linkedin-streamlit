@@ -4,7 +4,7 @@ For: Dr. Gregory Lyon - Programming II
 Task: Logistic Regression Model - LinkedIn User
 
 To run application:
-1. Open terminal w/ streamlit-linkedin-clark environment active
+1. Open terminal w/ venv-linkedin environment active
 2. Navigate to corresponding directory
 3. Input: "streamlit run streamlit-app.py" command
 
@@ -57,7 +57,7 @@ ss.dropna(inplace=True)
 
 #----------------Logistic Regression Model Specification----------------#
 
-#Assign Target and Feature Set
+#Create Target and Feature Set
 y = ss['sm_li']
 X = ss.drop('sm_li', axis = 1)
 
@@ -225,7 +225,6 @@ with col_p:
         st.divider()
         
         #Display Classification Result
-        color = ""
         if (int(y_pred[0])) == 1:
             st.write("Our model would classify this person as a :blue[LinkedIn User]!")
         else:
